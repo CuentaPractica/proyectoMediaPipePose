@@ -1,0 +1,87 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+Button_Widget:
+
+<Button_Widget@MDBoxLayout>:
+    orientation: 'vertical'
+    spacing: "10dp"
+    canvas:
+        Color:
+            rgb: 0,0,0
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    
+    MDToolbar:
+        id: toolbar
+        title: app.title
+        md_bg_color: app.theme_cls.primary_color
+        background_palette: "Primary"
+        elevation: 10
+        left_action_items: [["dots-vertical", lambda x: None]]
+    
+    MDGridLayout:
+        cols: 2
+        row_default_height: (self.width - self.cols*self.spacing[0]) / self.cols
+        row_force_default: True
+        adaptive_height: True
+        padding: dp(4), dp(4)
+        spacing: dp(4)
+
+        Image:
+            id: image
+
+        SmartTileWithLabel:
+            id: foto
+            source: "imagenes/logo.png"
+            text: "[size=26]POSTURAS[/size]\n"
+    MDSeparator:
+        color: "blue"
+
+    Label:
+        text: ""
+        color: "blue"
+        font_size: "20sp"
+        size_hint: None, None
+        size: self.texture_size
+        pos_hint: {"center_x": .5}
+
+    MDSeparator:
+        color: "blue"
+    ScrollView:
+        pos_hint: {"center_x": .5}
+        bar_width: 0
+        
+        MDBoxLayout:
+            adaptive_height: True
+            orientation: "vertical"
+
+            MDBoxLayout:
+                id: box
+                padding: "10dp"
+                adaptive_size: True
+                spacing: "10dp"
+                orientation: "vertical"
+                pos_hint: {"center_x": .5}
+                
+                MDRoundFlatIconButton:
+                    text: "*********  LECCION 1  **********"
+                    icon: "language-python"
+                    pos_hint: {"center_x": .5}
+                    on_press: root.empezar_leccion1()
+                MDRoundFlatIconButton:
+                    icon: "android"
+                    text: "*********  LECCION 2  **********"
+                    pos_hint: {'center_x':.5,'center_y': 0}
+                MDRoundFlatIconButton:
+                    icon: "android"
+                    text: "*********  LECCION 3  **********"
+                    pos_hint: {'center_x':.5,'center_y': 0}
+                MDRoundFlatIconButton:
+                    icon: "android"
+                    text: "MDROUNDFLATICONBUTTON"
+                    pos_hint: {'center_x':.5,'center_y': 0}
+                    on_press: root.probar()
+    
+  
+ 
+    
